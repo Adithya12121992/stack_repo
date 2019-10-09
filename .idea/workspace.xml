@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a75ccd39-66ae-43d1-82b9-46c2be0250e4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/prioritizer1Array.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/prioritizer/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/prioritizer/com/company/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/prioritizer/com/company/prioritizer1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/prioritizer/com/company/prioritizer1.class" afterDir="false" />
@@ -86,6 +86,9 @@
       <workItem from="1570555265970" duration="206000" />
       <workItem from="1570557003423" duration="12449000" />
       <workItem from="1570588750657" duration="7004000" />
+      <workItem from="1570598071981" duration="198000" />
+      <workItem from="1570622990206" duration="7252000" />
+      <workItem from="1570636951581" duration="2999000" />
     </task>
     <servers />
   </component>
