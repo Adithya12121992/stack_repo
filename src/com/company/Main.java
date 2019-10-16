@@ -11,12 +11,6 @@ public class Main {
         System.out.println("Enter the size of the Prioritizer");
         Scanner scan = new Scanner(System.in);
         prioritizer1 newOBJ = new  prioritizer1(scan.nextInt());
-        /*newOBJ.sizeOfStack();
-        newOBJ.insert(11.0);
-        newOBJ.insert(1.0);
-        newOBJ.insert(12.5);
-        newOBJ.insert(14.6);
-        newOBJ.removeNextInOrder();*/
 
        while (true){
             System.out.println("Operations:\n1.)Insert\t2.)Remove in Ascending order\t3.)RemoveAny\t4.)CheckPhase\t5.)Size of stack\t6.)Exit");

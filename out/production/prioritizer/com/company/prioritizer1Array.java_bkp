@@ -1,31 +1,34 @@
 package com.company;
 
-import java.util.*;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
 
-public class prioritizer1<T> implements prioritizerInterface<T>,Comparator<T>
+public class prioritizer1Array<T> implements prioritizerInterface<T>
 {
     public boolean isInInsertion = true;
     private int topOfStack = 0;
     public int sizeOfStack;
+    private T arrayElementList[];
     //public ArrayList<T> arrayElementList = new ArrayList<T>();
-    Queue<T> arrayElementList = new LinkedList<T>();
+    //Queue<T> arrayElementList = new LinkedList<T>();
 
-    public prioritizer1(int nextInt) {
+
+    public prioritizer1Array(int nextInt) {
         sizeOfStack = nextInt;
+        arrayElementList = (T[]) new Object[sizeOfStack];
     }
-    // code to insert an element into an array
+
     @Override
     public void insert(T elementValue) {
         // get the length of an array first and later compare for the topOfStack
-        int lengthOfArray = arrayElementList.size();
-        if (lengthOfArray >= sizeOfStack) {
-            System.out.println("Prioritizer overflown ! Cannot Add more elements to this Prioritizer");
+        try {
+            int lengthOfArray = arrayElementList.length;
+            arrayElementList[topOfStack++] = elementValue;
         }
-        else
-        {
-            topOfStack = lengthOfArray;
-            arrayElementList.add(elementValue);
-            //System.out.println("The top of the stack is :"+topOfStack);
+        catch(Exception e){
+            System.out.println("Prioritizer overflown !! Cannot add more elements to the Prioritizer");
         }
     }
 
@@ -44,11 +47,28 @@ public class prioritizer1<T> implements prioritizerInterface<T>,Comparator<T>
         }
     }
 
-    private void compare(Queue<T> arrayElementList) {
+    /*private void compare(Queue<T> arrayElementList) {
         int array_length = this.arrayElementList.size();
         String return_type = this.arrayElementList.element().getClass().getName();
 
-       if (return_type == "java.lang.Double" || return_type == "java.lang.Integer") {
+        if(return_type == "java.lang.Integer") {
+            int size_of_queue = arrayElementList.size();
+            int i=0,j=size_of_queue;
+            //System.out.println(size_of_queue);
+            int[] arrayElementArray = new int[size_of_queue];
+            for ( T item : arrayElementList) {
+                if (i < j)
+                {
+                    arrayElementArray[i] = (int) item;
+                    i++;
+                }
+            }
+            Arrays.sort(arrayElementArray);
+            int element_to_remove = arrayElementArray[0];
+            arrayElementList.remove(element_to_remove);
+
+        }
+        else if (return_type == "java.lang.Double") {
             //Call function for Double Sort
             int size_of_queue = arrayElementList.size();
             int i=0,j=size_of_queue;
@@ -82,34 +102,29 @@ public class prioritizer1<T> implements prioritizerInterface<T>,Comparator<T>
             String element_to_remove = arrayElementArray[0];
             arrayElementList.remove(element_to_remove);
         }
-    }
+    }*/
 
     public void removeNextInOrder()
     {
-        if (arrayElementList.peek() == null )
-            System.out.println("Prioritizer has no elements to be removed");
-        else {
-
-            compare(arrayElementList);
-
-            topOfStack = topOfStack - 1;
-        }
+            //compare(arrayElementList);
+            //compareTo((T) arrayElementList);
+            //Arrays.sort(arrayElementList);
+        for(int i=0;i<arrayElementList.length;i++)
+            System.out.println(arrayElementList[i]);
+        topOfStack = topOfStack - 1;
     }
 
     // code to remove any element from an array
     public void removeAny()
     {
-        if(arrayElementList.peek() != null )
-            arrayElementList.remove();
-        else
-            System.out.println("Prioritizer has no elements to be removed");
+
     }
 
     // code to get the size of the stack/arrayList
     @Override
     public void sizeOfStack()
     {
-        System.out.println(arrayElementList.size());
+        System.out.println(arrayElementList.length);
     }
 
     // code to check if the stack is in insertion phase?
@@ -118,16 +133,12 @@ public class prioritizer1<T> implements prioritizerInterface<T>,Comparator<T>
     {
         if (isInInsertion)
         {
-            System.out.println("The Prioritizer is in the Insertion Phase");
+            System.out.println("The stack is in the Insertion Phase");
         }
         else
         {
-            System.out.println("The Prioritizer is in the Removal Phase");
+            System.out.println("The stack is in the Removal Phase");
         }
-    }
-    @Override
-    public int compare(T t, T t1) {
-        return 0;
     }
 
     @Override
@@ -137,6 +148,11 @@ public class prioritizer1<T> implements prioritizerInterface<T>,Comparator<T>
         individualElement+= arrayElementList+" ";
         System.out.println(individualElement);
     }
+
+    /*@Override
+    public int compareTo(T t) {
+        System.out.println(t.);
+    }*/
 }
 
 
