@@ -13,7 +13,7 @@ public class Main {
         prioritizer1 newOBJ = new  prioritizer1(scan.nextInt());
 
        while (true){
-            System.out.println("Operations:\n1.)Insert\t2.)Remove in Ascending order\t3.)RemoveAny\t4.)CheckPhase\t5.)Size of stack\t6.)Exit");
+            System.out.println("Operations:\n1.)Insert\t2.)Remove in Ascending order\t3.)RemoveAny\t4.)CheckPhase\t5.)Size of Prioritizer\t6.)Exit");
             int selection = scan.nextInt();
             switch (selection){
                 case 1:
@@ -33,7 +33,7 @@ public class Main {
                     newOBJ.isInInsertionPhase();
                     break;
                 case 5:
-                    newOBJ.sizeOfStack();
+                    newOBJ.sizeOfPrioritizer();
                     break;
                 case 6:
                     System.exit(0);
