@@ -19,7 +19,7 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         int newPsize = scan.nextInt();
         if( pSelection == 1) {
-            prioritizer1 newOBJ = new prioritizer1(scan.nextInt());
+            prioritizer1 newOBJ = new prioritizer1(newPsize);
 
             while (true) {
                 System.out.println("Operations:\n1.)Insert\t2.)Remove in Ascending order\t3.)RemoveAny\t4.)CheckPhase\t5.)Size of Prioritizer\t6.)Exit");
@@ -85,7 +85,7 @@ public class Main {
         }//Prioritizer 2
         else if (pSelection==3)
         {
-            PrioritizerImpl3 newOBJ = new PrioritizerImpl3(scan.nextInt());
+            PrioritizerImpl3 newOBJ = new PrioritizerImpl3(newPsize);
             while (true) {
                 System.out.println("\nOperations:\n1.)Insert\t2.)Remove in Ascending order\t3.)RemoveAny\t4.)CheckPhase\t5.)Size of Prioritizer\t6.)Exit");
                 int selection = scan.nextInt();
