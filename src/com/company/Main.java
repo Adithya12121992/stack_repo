@@ -1,8 +1,8 @@
 package com.company;
 import com.company.prioritizer1;
-
-import java.util.Scanner;
 //import com.company.prioritizer1Array;
+import java.util.Scanner;
+
 
 public class Main {
 

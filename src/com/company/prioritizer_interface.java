@@ -10,6 +10,8 @@ interface prioritizerInterface<T> {
 
     public void changePhase(); //for changing the phase of the stack operation
 
+    int compareTo(Object o);
+
     default public void removeNextInOrder(){
         changePhase(); //Calling the function ChangePhase to change the phase form InsertPhase
     }  //for removal of elements form the Stack
