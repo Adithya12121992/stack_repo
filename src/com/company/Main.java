@@ -1,6 +1,6 @@
 package com.company;
 import com.company.prioritizer1;
-//import com.company.prioritizer1Array;
+import com.company.Prioritizer2;
 import java.util.Scanner;
 
 
