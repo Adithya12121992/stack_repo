@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a75ccd39-66ae-43d1-82b9-46c2be0250e4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/prioritizer1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/prioritizer1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/prioritizer_interface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/prioritizer_interface.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -90,7 +92,7 @@
       <workItem from="1570710586342" duration="296000" />
       <workItem from="1571234687558" duration="1245000" />
       <workItem from="1571236004785" duration="668000" />
-      <workItem from="1571278287297" duration="7902000" />
+      <workItem from="1571278287297" duration="8566000" />
     </task>
     <task id="LOCAL-00001" summary="Prioritizer 1 working code">
       <created>1571286504047</created>

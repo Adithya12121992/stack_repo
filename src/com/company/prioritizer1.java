@@ -7,9 +7,11 @@ public class prioritizer1<T> implements prioritizerInterface<T>,Comparator<T>
     public boolean isInInsertion = true;
     private int topOfStack = 0;
     public int sizeOfStack;
-    //public ArrayList<T> arrayElementList = new ArrayList<T>();
+
+    // Queue declaration
     Queue<T> arrayElementList = new LinkedList<T>();
 
+    //Constructor for prioritizer1
     public prioritizer1(int nextInt) {
         sizeOfStack = nextInt;
     }
@@ -18,6 +20,8 @@ public class prioritizer1<T> implements prioritizerInterface<T>,Comparator<T>
     public void insert(T elementValue) {
         // get the length of an array first and later compare for the topOfStack
         int lengthOfArray = arrayElementList.size();
+
+        // Checking for the overflow condition
         if (lengthOfArray >= sizeOfStack) {
             System.out.println("Prioritizer overflown ! Cannot Add more elements to this Prioritizer");
         }
@@ -162,7 +166,7 @@ public class prioritizer1<T> implements prioritizerInterface<T>,Comparator<T>
 
     // code to get the size of the stack/arrayList
     @Override
-    public void sizeOfStack()
+    public void sizeOfPrioritizer()
     {
         System.out.println(arrayElementList.size());
     }

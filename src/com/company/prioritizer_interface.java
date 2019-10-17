@@ -19,7 +19,7 @@ interface prioritizerInterface<T> {
     default public void removeAny(){
         changePhase(); //Calling the function ChangePhase to change the phase form InsertPhase
     } //for removal of elements form the Stack
-    public void sizeOfStack(); //for displaying the size of the Stack
+    public void sizeOfPrioritizer(); //for displaying the size of the Stack
     public void isInInsertionPhase(); //for getting the phase of the Stack
     public void displayElements(); //for displaying the elements
 }
