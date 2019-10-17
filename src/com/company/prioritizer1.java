@@ -1,7 +1,7 @@
 package com.company;
 
 import java.util.*;
-
+import java.util.Random;
 public class prioritizer1<T> implements prioritizerInterface<T>,Comparator<T>
 {
     public boolean isInInsertion = true;
@@ -44,65 +44,120 @@ public class prioritizer1<T> implements prioritizerInterface<T>,Comparator<T>
         }
     }
 
-    private void compare(Queue<T> arrayElementList) {
-        int array_length = this.arrayElementList.size();
-        String return_type = this.arrayElementList.element().getClass().getName();
+    public void compare(Queue<T> arrayElementList){
+        T[] arrayElementListArray = (T[]) new Object[sizeOfStack];
+        int size_of_queue = arrayElementList.size();
+        //System.out.println(size_of_queue);
+        int i=0,j=size_of_queue;
+        for (T item:arrayElementList){
+            if (i < j)
+            {
+                arrayElementListArray[i] = item;
+                i++;
+            }
+        }
+        try {
+            ArraySort(arrayElementListArray);
+        }
+        catch (Exception e){
+            //System.out.println(e);
+        }
+        T element_name = arrayElementListArray[0];
+        arrayElementList.remove(element_name);
+    }
 
-       if (return_type == "java.lang.Double" || return_type == "java.lang.Integer") {
-            //Call function for Double Sort
-            int size_of_queue = arrayElementList.size();
-            int i=0,j=size_of_queue;
-            //System.out.println(size_of_queue);
-            double[] arrayElementArray = new double[size_of_queue];
-            for ( T item : arrayElementList) {
-                if (i < j)
+    public void ArraySort(T arrayelements[])
+    {
+        for (int i = 0; i <= topOfStack; i++)
+        {
+            for (int j = i + 1; j <= topOfStack; j++)
+            {
+                if (compare(arrayelements[i], arrayelements[j])>0)
                 {
-                    arrayElementArray[i] = (double) item;
-                    i++;
+                    T tempVariable = arrayelements[i];
+                    arrayelements[i] = arrayelements[j];
+                    arrayelements[j] = tempVariable;
                 }
             }
-            Arrays.sort(arrayElementArray);
-            double element_to_remove = arrayElementArray[0];
-            arrayElementList.remove(element_to_remove);
         }
-        else if(return_type == "java.lang.String") {
-            //Call function for String Sort
-            int size_of_queue = arrayElementList.size();
-            int i=0,j=size_of_queue;
-            //System.out.println(size_of_queue);
-            String[] arrayElementArray = new String[size_of_queue];
-            for ( T item : arrayElementList) {
-                if (i < j)
-                {
-                    arrayElementArray[i] = (String) item;
-                    i++;
-                }
-            }
-            Arrays.sort(arrayElementArray);
-            String element_to_remove = arrayElementArray[0];
-            arrayElementList.remove(element_to_remove);
+    }
+
+    @Override
+    public int compare(T t, T t1) {
+        String return_type = t.getClass().getName();
+        if(return_type == "java.lang.Double" || return_type == "java.lang.Integer")
+        {
+            double intDouble1 = (double)t;
+            double intDouble2 = (double)t1;
+            if(intDouble1>intDouble2)
+                return 1;
+            else if(intDouble1==intDouble2)
+                return 0;
+            else
+                return -1;
         }
+        else if(return_type == "java.lang.String")
+        {
+            String String1 = (String)t;
+            String String2 = (String)t1;
+            return String1.compareTo(String2);
+        }
+        else
+            return 0;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        // TODO Auto-generated method stub
+        return 0;
     }
 
     public void removeNextInOrder()
     {
-        if (arrayElementList.peek() == null )
-            System.out.println("Prioritizer has no elements to be removed");
-        else {
+        try {
+            if (arrayElementList.peek() == null)
+                System.out.println("Prioritizer has no elements to be removed");
+            else {
 
-            compare(arrayElementList);
-
-            topOfStack = topOfStack - 1;
+                compare(arrayElementList);
+                topOfStack = topOfStack - 1;
+            }
+        }
+        catch (Exception e){
+            System.out.println("Could not delete the element"+ e.getLocalizedMessage() );
         }
     }
 
+    public void removeElement( int randInt){
+        T[] arrayElementListArray1 = (T[]) new Object[sizeOfStack];
+        int size_of_queue = arrayElementList.size();
+        int i=0,j=size_of_queue;
+        for (T item:arrayElementList){
+            if (i < j)
+            {
+                arrayElementListArray1[i] = item;
+                i++;
+            }
+        }
+        T element_name = arrayElementListArray1[randInt];
+        System.out.println(element_name);
+        arrayElementList.remove(element_name);
+    }
     // code to remove any element from an array
     public void removeAny()
     {
-        if(arrayElementList.peek() != null )
-            arrayElementList.remove();
-        else
-            System.out.println("Prioritizer has no elements to be removed");
+        try {
+            Random randINt = new Random();
+            if (arrayElementList.peek() != null) {
+                int randInt = randINt.nextInt(((arrayElementList.size()-1)- 0) + 1);
+                System.out.println(randInt);
+                removeElement(randInt);
+            } else
+                System.out.println("Prioritizer has no elements to be removed");
+        }
+        catch (Exception e){
+            System.out.println("Cannot delete the element");
+        }
     }
 
     // code to get the size of the stack/arrayList
@@ -125,10 +180,7 @@ public class prioritizer1<T> implements prioritizerInterface<T>,Comparator<T>
             System.out.println("The Prioritizer is in the Removal Phase");
         }
     }
-    @Override
-    public int compare(T t, T t1) {
-        return 0;
-    }
+
 
     @Override
     public void displayElements()
