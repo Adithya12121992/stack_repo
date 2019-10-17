@@ -39,7 +39,7 @@ public class PrioritizerImpl3<T> implements prioritizerInterface<T> {//
 	@Override
 	public void displayElements() {
 		for (int i = 0; i < prioritizerList.size(); i++) {
-			System.out.print(prioritizerList.get(i));
+			System.out.print("\n"+prioritizerList.get(i));
 		} 
 	}
 

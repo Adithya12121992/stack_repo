@@ -9,7 +9,7 @@ public class prioritizer1<T> implements prioritizerInterface<T>,Comparator<T>
     public int sizeOfStack;
 
     // Queue declaration
-    Queue<T> arrayElementList = new LinkedList<T>();
+    private Queue<T> arrayElementList = new LinkedList<T>();
 
     //Constructor for prioritizer1
     public prioritizer1(int nextInt) {
@@ -28,8 +28,8 @@ public class prioritizer1<T> implements prioritizerInterface<T>,Comparator<T>
         else
         {
             topOfStack = lengthOfArray;
+            // Add element to the Queue arrayElementList
             arrayElementList.add(elementValue);
-            //System.out.println("The top of the stack is :"+topOfStack);
         }
     }
 
@@ -38,20 +38,21 @@ public class prioritizer1<T> implements prioritizerInterface<T>,Comparator<T>
     public void changePhase()
     {
         System.out.println(isInInsertion);
+        // Toggling the phase to opposite of whatever input is given
         isInInsertion = !isInInsertion;
         if (isInInsertion) {
             System.out.println("Phase changed to Insert Phase");
         }
         else{
-            //System.out.println(sort_elements(arrayElementList));
             System.out.println("Phase changed to Delete Phase "+arrayElementList);
         }
     }
 
     public void compare(Queue<T> arrayElementList){
+        // Initializing new array
         T[] arrayElementListArray = (T[]) new Object[sizeOfStack];
         int size_of_queue = arrayElementList.size();
-        //System.out.println(size_of_queue);
+        //Comparator starts here
         int i=0,j=size_of_queue;
         for (T item:arrayElementList){
             if (i < j)
@@ -61,17 +62,21 @@ public class prioritizer1<T> implements prioritizerInterface<T>,Comparator<T>
             }
         }
         try {
+            // Calling the sort function to sort the elements
             ArraySort(arrayElementListArray);
         }
         catch (Exception e){
             //System.out.println(e);
         }
+        // Getting the first element from the sorted array
         T element_name = arrayElementListArray[0];
+        // Removing the first element from the sorted Queue
         arrayElementList.remove(element_name);
     }
 
     public void ArraySort(T arrayelements[])
     {
+        //Sorting function, can use Arrays.sort too , but the entire purpose of the project is lost if Arrays.sort is used.
         for (int i = 0; i <= topOfStack; i++)
         {
             for (int j = i + 1; j <= topOfStack; j++)
@@ -88,7 +93,9 @@ public class prioritizer1<T> implements prioritizerInterface<T>,Comparator<T>
 
     @Override
     public int compare(T t, T t1) {
+        // Comparing each elements inside the array for sorting
         String return_type = t.getClass().getName();
+        // Checking for the Integer, Double and Float value
         if(return_type == "java.lang.Double" || return_type == "java.lang.Integer")
         {
             double intDouble1 = (double)t;
@@ -100,6 +107,7 @@ public class prioritizer1<T> implements prioritizerInterface<T>,Comparator<T>
             else
                 return -1;
         }
+        // Checking for the String value
         else if(return_type == "java.lang.String")
         {
             String String1 = (String)t;
@@ -112,17 +120,18 @@ public class prioritizer1<T> implements prioritizerInterface<T>,Comparator<T>
 
     @Override
     public int compareTo(Object o) {
-        // TODO Auto-generated method stub
+        // CompareTo is an method to compare strings (mandatory although it does nothing)
         return 0;
     }
 
     public void removeNextInOrder()
     {
         try {
+            // Check if the Prioritizer is null and proceed
             if (arrayElementList.peek() == null)
                 System.out.println("Prioritizer has no elements to be removed");
             else {
-
+                // Sort before removing an element, according to the description of the Prioritizer 1
                 compare(arrayElementList);
                 topOfStack = topOfStack - 1;
             }
@@ -133,6 +142,7 @@ public class prioritizer1<T> implements prioritizerInterface<T>,Comparator<T>
     }
 
     public void removeElement( int randInt){
+        // Code is for removing an random element from an Queue -- SUB METHOD
         T[] arrayElementListArray1 = (T[]) new Object[sizeOfStack];
         int size_of_queue = arrayElementList.size();
         int i=0,j=size_of_queue;
@@ -150,6 +160,7 @@ public class prioritizer1<T> implements prioritizerInterface<T>,Comparator<T>
     // code to remove any element from an array
     public void removeAny()
     {
+        // Code is for removing an random element from an Queue -- MAIN METHOD
         try {
             Random randINt = new Random();
             if (arrayElementList.peek() != null) {
@@ -168,6 +179,7 @@ public class prioritizer1<T> implements prioritizerInterface<T>,Comparator<T>
     @Override
     public void sizeOfPrioritizer()
     {
+        //Getting the size of the prioritizer
         System.out.println(arrayElementList.size());
     }
 
@@ -175,6 +187,7 @@ public class prioritizer1<T> implements prioritizerInterface<T>,Comparator<T>
     @Override
     public void isInInsertionPhase()
     {
+        // To Check the phase of the program is in
         if (isInInsertion)
         {
             System.out.println("The Prioritizer is in the Insertion Phase");
@@ -189,6 +202,7 @@ public class prioritizer1<T> implements prioritizerInterface<T>,Comparator<T>
     @Override
     public void displayElements()
     {
+        // Displaying the elements, although the program didnt mention this method, this is a must needed one in the prioritizer class
         String individualElement="";
         individualElement+= arrayElementList+" ";
         System.out.println(individualElement);

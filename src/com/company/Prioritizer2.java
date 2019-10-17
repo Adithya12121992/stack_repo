@@ -26,12 +26,9 @@ public class Prioritizer2<T> implements prioritizerInterface<T> {
 	public void insert(T element){
         //boolean isInInsertion=true; // setting the isInInsertion to true every time whenever we want to insert an element
         System.out.println("Changed to the Insertion Phase");
-       // System.out.println("Enter the numbers of elements you want into array: ");
-        //Scanner sc=new Scanner(System.in);
-        //number=s.nextInt();
-       // elements=element;
-		int n = Integer.parseInt((String) element);
-		//int n = (int) element;
+
+		//int n = Integer.parseInt((String) element);
+		int n = (int) element;
         for (int i = 0; i < n; i++) {
         System.out.println("Enter " + i + "th Element");
         @SuppressWarnings("resource")
@@ -155,9 +152,12 @@ public class Prioritizer2<T> implements prioritizerInterface<T> {
 	
 	public void isInInsertionPhase() {
 		// TODO Auto-generated method stub
-		
-        	
-		System.out.println(isInInsertion);
+
+		if (!isInInsertion)
+			System.out.println("The Prioritizer is in the Insertion Phase");
+		else
+			System.out.println("The Prioritizer is in the Removal Phase");
+		//System.out.println(isInInsertion);
 		
 		
 	}
